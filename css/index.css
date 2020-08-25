@@ -9,45 +9,65 @@ body {
     background-image:  url(../assets/background.jpg);
     background-attachment: fixed;
     background-size: cover; 
-    display: flex;
-}
-
-.topnav {
-    position: fixed;
-    display: flex;
+    height: 100vh;
     width: 100vw;
-    height: 3.5rem;
-    background-color: rgb(14, 14, 13);
-    opacity:0.9;
-    align-items: center;
+    display: grid;
+    grid-template:
+    "logo nav nav" 1fr
+    "sidenav content advert" 1fr
+    "sidenav footer footer" 1fr
+    / 1fr 1fr 1fr;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
-.topnav i{
-    color: rgba(67, 231, 243, 0.664);
-    font-size: 2rem;
-    padding-left: 1.2rem;
+.profilepic{
+    background: rgba(68, 68, 68, 0.9);
+    background-image:  url(../assets/profile.png);
+    background-size: contain; 
+    width: 170px;
+    height: 170px;
+    border: 3px solid #333;
+    border-radius: 50%;
+    margin-left: 30%;
+    transform: translateY(250%);
 }
-.topnav p{
-    color: white;
-    font-size: 2rem;
-    padding-left: 1.2rem;
+
+.profile{
+    transition: 0.7s ease-in-out;
+    grid-area: sidenav;
+    transform: translateY(-100%);
 }
+
 
 .shadowHome{
     width: 70vw;
     height: auto;
-    opacity: 0.8;
+    opacity: 0.6;
     position: absolute;
     bottom: 0;
-    left: -100%;
+    right: -100%;
+    grid-area:footer;
+    -moz-transform:translateX(-140%);
+    -o-transform: translateX(-140%);
+    -webkit-transform:translateX(-140%);
+    transform: translateX(-140%);
 
-    -moz-transform:translateX(185.68%);
-    -o-transform: translateX(185.68%);
-    -webkit-transform:translateX(185.68%);
-    transform: translateX(185.68%);
+    transition:transform 1.2s ease, opacity 1.6s ease-in-out;
+}
 
-    transition:all 1s ease-in-out;
-
+ a{
+    z-index: 5;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font: 700;
+    font-size: 3.5vw;
+    white-space: nowrap;
+    overflow: hidden;
+    grid-area:content;
+    align-self: center;
+    text-align: center;
+    animation: animated-text 2s steps(20,end) 0.3s 1 normal both;
 }
 
 svg{
@@ -95,20 +115,54 @@ svg{
     .snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}
     .snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}
     .snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
- 
+
+    @keyframes animated-text{
+        from{width: 0;}
+        to{width: 400px;}
+      }
+
+    @keyframes animated-text-mobile{
+        from{width: 0;}
+        to{width: 250px;}
+      }
+
 @media (max-width: 600px) 
 {
+  
+    body{
+    display: grid;
+    grid-template:
+    "logo" 1fr
+    "content" 1fr
+    "sidenav" 1fr
+    / 1fr ;
+    }
   .shadowHome{
       width: 120vw ;
-      -moz-transform:translateX(66.5%);
-    -o-transform: translateX(66.5%);
-    -webkit-transform:translateX(66.5%);
-    transform: translateX(66.5%);
+      -moz-transform:translateX(-67%);
+    -o-transform: translateX(-67%);
+    -webkit-transform:translateX(-67%);
+    transform: translateX(-67%);
 
     transition: 0.8s ease-in-out;
   }
+  .profile{
+    -moz-transform:translateY(-67%);
+    -o-transform: translateY(-67%);
+    -webkit-transform:translateY(-67%);
+    transform: translateY(-200%);
+      grid-area: logo;
+  }
+
+  a{
+      grid-area: content;
+      text-align: start;
+      margin-left: 3rem;
+      animation: animated-text-mobile 2s steps(20,end) 0.3s 1 normal both;
+      font-size:8vw;
+  }
 
   svg{
-    transform:  scale(-1, -1) translateY(-0.8%);
+    transform:  scale(-1, -1) translateY(-1.2%);
   }
 }
