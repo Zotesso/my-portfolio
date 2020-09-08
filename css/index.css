@@ -56,11 +56,10 @@ body {
     transition:transform 1.2s ease, opacity 1.6s ease-in-out;
 }
 
- a{
+ h1{
     z-index: 5;
     color: white;
     font-family: 'Roboto', sans-serif;
-    font: 700;
     font-size: 3.5vw;
     white-space: nowrap;
     overflow: hidden;
@@ -68,6 +67,27 @@ body {
     align-self: center;
     text-align: center;
     animation: animated-text 2s steps(20,end) 0.3s 1 normal both;
+}
+
+.contacts{
+  grid-area:content;
+  text-align: center;
+  align-self: flex-end;
+  z-index: 10;
+}
+
+.fab {
+  font-size:4rem;
+  padding-left:4px;
+  color:white;
+}
+
+.fa-linkedin-in{
+  color:white;
+}
+
+.fa-whatsapp-square{
+  color:white;
 }
 
 svg{
@@ -118,7 +138,7 @@ svg{
 
     @keyframes animated-text{
         from{width: 0;}
-        to{width: 400px;}
+        to{width: 440px;}
       }
 
     @keyframes animated-text-mobile{
@@ -154,12 +174,12 @@ svg{
       grid-area: logo;
   }
 
-  a{
+  h1{
       grid-area: content;
-      text-align: start;
-      margin-left: 3rem;
+      text-align: center;
+      justify-self: center;
       animation: animated-text-mobile 2s steps(20,end) 0.3s 1 normal both;
-      font-size:8vw;
+      font-size:1.6rem;
   }
 
   svg{
