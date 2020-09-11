@@ -5,6 +5,7 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     font-size: 1.4rem;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -19,13 +20,13 @@ body{
     grid-template:
     "logo nav nav" 1fr
     "sidenav content advert" 1fr
-    "sidenav footer footer" 1fr
+    "sidenav footer footerRight" 1fr
     / 1fr 1fr 1fr;
     justify-content: space-between;
     background-image:  url(../assets/background.jpg);
     background-attachment: fixed;
     background-size: cover; 
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
 .second-part{
@@ -102,11 +103,39 @@ body{
   color:white;
 }
 
+.first-part .projectsButton{
+  grid-area: footer;
+  z-index: 10;
+  background: #fbfaff;
+  color: #47464b;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  width: 8rem;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 40px;
+  box-shadow: 
+  0 0.7px 4px rgba(0, 0, 0, 0.637),
+  0 1.9px 11.1px rgba(0, 0, 0, 0.267),
+  0 3.5px 16.8px rgba(255, 255, 255, 0.644),
+  0 15px 89px rgba(0, 0, 0, 0.295);
+  transition: 0.4s ease-in-out;
+    /* transform: translateY(-10%); */
+ }
+
 .first-part svg{
-    -moz-transform:scale(-1, -1) translateY(-0.5%);
-    -o-transform: scale(-1, -1) translateY(-0.5%);
-    -webkit-transform:scale(-1, -1) translateY(-0.5%);
-    transform:  scale(-1, -1) translateY(-0.5%);
+    -moz-transform:scale(-1, -1) translateY(-1.5%);
+    -o-transform: scale(-1, -1) translateY(-1.5%);
+    -webkit-transform:scale(-1, -1) translateY(-1.5%);
+    transform:  scale(-1, -1) translateY(-1.5%);
 }
 
 .first-part .snowflake {
@@ -281,6 +310,9 @@ body{
     transform:  scale(-1, -1) translateY(-1.2%);
   }
 
+  .first-part .projectsButton{
+    grid-area: sidenav;
+  }
   .second-part .split{
     flex-direction: column;
   }
