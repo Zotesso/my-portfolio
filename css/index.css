@@ -71,6 +71,16 @@ body{
 }
 
 .first-part h1{
+  z-index: 5;
+  color: white;
+  font-size: 3.5vw;
+  white-space: nowrap;
+  overflow: hidden;
+  grid-area:content;
+  text-align: center;
+  animation: animated-text 0.4s steps(60,end) 0.1s 1 normal both;
+}
+.first-part h2{
     z-index: 5;
     color: white;
     font-size: 3.5vw;
@@ -129,6 +139,28 @@ body{
   0 15px 89px rgba(0, 0, 0, 0.295);
   transition: 0.4s ease-in-out;
     /* transform: translateY(-10%); */
+ }
+
+ .linkButton{
+z-index: 10;
+  background: #fbfaff;
+  color: #8A0AFD;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  width: 2rem;
+  padding: 0.5rem 0;
+
+  margin-right: 0.8rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: 0.4s ease-in-out;
  }
 
 .first-part svg{
@@ -209,7 +241,7 @@ body{
 }
 
 .second-part .split .screen:hover{
-  flex-grow: 5;
+  flex-grow: 3;
   opacity: 1;
 }
 
@@ -225,8 +257,10 @@ body{
 }
 .second-part .split .screen:nth-child(3){
   background-repeat: no-repeat;
+  background-size: cover; 
+  background-attachment: fixed;
   background-position: center;
-  background: url(../assets/lunarie.png);
+  background: url(../assets/pokehunt.png);
 }
 
 .second-part .split .screen .content{
@@ -258,12 +292,13 @@ body{
   padding:0;
   font-size: 0.8rem;
   color:#111;
-
+  margin-bottom: 1rem;
 }
 
 .second-part .split .spotlight{
   color: #8A0AFD;
 }
+
 
 @media (max-width: 600px) 
 {
@@ -298,13 +333,19 @@ body{
       grid-area: logo;
   }
 
-  .first-part h1{
+  .first-part h2{
       grid-area: content;
       text-align: center;
       justify-self: center;
       animation: animated-text-mobile 2s steps(20,end) 0.3s 1 normal both;
       font-size:1.4rem;
   }
+  .first-part h1{
+    grid-area: content;
+    text-align: center;
+    animation: animated-text-mobile 0.3s steps(60,end) 0.1s 1 normal both;
+    font-size:1.4rem;
+}
 
   .first-part svg{
     transform:  scale(-1, -1) translateY(-1.2%);
