@@ -233,7 +233,7 @@ z-index: 10;
 }
 .second-part .split .screen{
   position: relative;
-  flex-grow: 2;
+  flex-grow: 3;
   display: flex;
   overflow: hidden;
   justify-content: flex-end;
@@ -243,26 +243,47 @@ z-index: 10;
 }
 
 .second-part .split .screen:hover{
-  flex-grow: 3;
+  flex-grow: 7;
   opacity: 1;
 }
 
 .second-part .split .screen:nth-child(1){
+  
   background-repeat: no-repeat;
-  background-position: auto;
+  background-position: left;
   background: url(../assets/lunarie.png);
 }
 .second-part .split .screen:nth-child(2){
+  
+  background: url(../assets/GameEngine.png);
   background-repeat: no-repeat;
-  background-position: center;
-  background: #222; 
+  background-position: auto;
+  background-size: cover; 
+
 }
 .second-part .split .screen:nth-child(3){
   background-repeat: no-repeat;
-  background-size: cover; 
-  background-attachment: fixed;
-  background-position: center;
+  background-position: left;
   background: url(../assets/pokehunt.png);
+  background-size: cover; 
+}
+
+.second-part .split .screen .title{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  top: 0;
+  height: 3rem;
+  z-index: 20;
+  background: #FFF;
+  padding: 40px;  
+  font-size: 1.2rem;
+  font-weight: bold;
+  color:#e723cd;
+  transition: 1s ease;
+  box-shadow: 5px 5px 3px 1px rgba(0,0,0,0.86);
 }
 
 .second-part .split .screen .content{
@@ -282,7 +303,11 @@ z-index: 10;
     transition-delay:0.5s;
 }
 
-.second-part .split .screen .hidden{
+.second-part .split .screen:hover .title{
+  transform: translateY(-100%);
+}
+
+ .second-part .split .screen .hidden{
   animation-fill-mode:forwards;
   animation: hidden 1s;
 }
@@ -314,81 +339,6 @@ z-index: 10;
 
 .second-part .split .spotlight{
   color: #8A0AFD;
-}
-
-.second-part .split .screen .moon{
-  align-self: center;
-  position: absolute;
-  justify-self: center;
-  width: 200px;
-	height: 200px;
-  border-radius: 50%;
-  background-color: deeppink;
-  border: 5px solid rgb(37, 5, 5);
-	box-shadow: inset 0 -30px mediumvioletred;
-	opacity: 1;
-}
-
-.moon::after{
-  content: '';
-  align-self: center;
-  position: absolute;
-  justify-self: center;
-  width: 188px;
-  height: 188px;
-  border-radius: 50%;
-  border: 1px solid transparent;
-  box-shadow: 0 0 200px  #ffffff; 
-}
-.cloud {
-	width: 80px;
-	height: 80px;
-	position: absolute;
-  left: 10%;
-  top:50%;
-	border-radius: 50%;
-  background-color: fuchsia;
-  animation: move 4s ease-in-out infinite;
-}
-
-.cloud:nth-of-type(1){
-  left:60%;
-  top:30%;
-}
-
-.cloud::before{
-  content: "";
-	width: 80px;
-	height: 80px;
-	position: absolute;
-	top: 30px;
-	left: -40px;
-	border-radius: 50%;
-	background-color: fuchsia;
-}
-
-.cloud::after{
-  content: "";
-	width: 80px;
-	height: 80px;
-	position: absolute;
-	top: 30px;
-	left: 40px;
-	border-radius: 50%;
-	background-color: fuchsia;
-}
-
-.filter{
-  width: 145px;
-	height: 40px;
-	border-radius: 17px;
-  position: absolute;
-  align-self: center;
-  top:70px;
-  right:-33px;
-  z-index: 10;
-	background-color: fuchsia;
-	box-shadow: inset 0 -5px purple;
 }
 
 @media (max-width: 600px) 
@@ -442,8 +392,7 @@ z-index: 10;
   }
   .second-part .split .screen .content{
     width: 80%;
-    height: 80%;
-    padding:20px;
+    padding:30px;
   }
   .second-part .split .screen .content h2{
     text-transform: uppercase;
@@ -455,6 +404,7 @@ z-index: 10;
   font-size: 0.6rem;
   color:#111;
   margin-bottom: 1rem;
+
 }
 
 .linkButton{
